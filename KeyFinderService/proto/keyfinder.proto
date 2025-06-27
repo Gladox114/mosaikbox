@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package keyfinder;
+
+message KeyRequest {
+	bytes pcm_data = 1;
+	int32 frame_rate = 2;
+	int32 channels = 3;
+}
+
+message KeyResponse {
+	string key = 1;
+}
+
+// gRPC-Service
+service KeyFinder {
+	rpc GetKey (KeyRequest) returns (KeyResponse) {}
+}
