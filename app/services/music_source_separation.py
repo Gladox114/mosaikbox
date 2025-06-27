@@ -30,7 +30,7 @@ def separate(session_id: str, song_path: str):
 
     filename = song_name_with_hash + "/{stem}.{ext}"
     # todo: add device detection and remove hardcoded "mps" device so this also runs under linux and other platforms
-    demucs.separate.main(["-n", DEMUCS_MODEL, "-d", "mps", "-o", stem_path, "--filename", filename, song_path])
+    demucs.separate.main(["-n", DEMUCS_MODEL, "-o", stem_path, "--filename", filename, song_path])
 
 
 def get_stem_for_song(session_id, song_path: str, stem_type: StemType) -> AudioSegment:  # (np.ndarray, int, float):

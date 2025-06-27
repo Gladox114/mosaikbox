@@ -19,7 +19,7 @@ def determine_beats_and_tempo(audio_path: str, audio_length: float) -> (np.ndarr
 def detect_beats(audio_path: str) -> np.ndarray:
     def estimate_beats(audio_path: str, model: int = 1) -> np.ndarray:
         # TODO: change mps to automatic device inference
-        estimator = BeatNet(model, mode='offline', inference_model='DBN', plot=[], thread=False, device='mps')
+        estimator = BeatNet(model, mode='offline', inference_model='DBN', plot=[], thread=False)
         return estimator.process(audio_path)
 
     beat_times = estimate_beats(audio_path, 1)
